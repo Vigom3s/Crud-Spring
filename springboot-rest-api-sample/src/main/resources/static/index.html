@@ -54,7 +54,7 @@ margin-top: 5%;
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalLabel">Pesquisa de Usuários</h5>
+        <h5 class="modal-title" id="modalLabel">Pesquisa de Usuï¿½rios</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -106,34 +106,29 @@ function deletarDaTela(){
 	
 	var id = $('#id').val();
 	
-	if(id == null || id != null && id.trim() == ''){
-		alert('Para realizar o delete, pesquise o usuário que deseja deletar')
-	}else{
-	deletaUsuario(id);
-	document.getElementById('formCadastro').reset();
+	if (id === null || id !== null && id.trim() === ''){
+		alert('Para realizar o delete, pesquise o usuï¿½rio que deseja deletar')
+	} else {
+		deletaUsuario(id);
+		document.getElementById('formCadastro').reset();
 	} 
 	
 }
 
 
 function deletaUsuario(id){
-
-	
-	
-	if(confirm('Deseja realmente deletar o usuário?' )){
+	if(confirm('Deseja realmente deletar o usuï¿½rio?' )){
 	
 	$.ajax({
 		method: "DELETE",
 		url : "deletar",
 		data: "id=" + id ,
 		success: function (response){
-			
 			$('#'+ id).remove();
 			alert(response);
-			
 		}
 	}).fail(function (xhr, status, errorThrown){
-		alert("Erro ao buscar Usuário por id: ");
+		alert("Erro ao buscar Usuï¿½rio por id: ");
 	});
 	
 	}
@@ -160,7 +155,7 @@ $.ajax({
 		
 	}
 }).fail(function (xhr, status, errorThrown){
-	alert("Erro ao buscar Usuário ");
+	alert("Erro ao buscar Usuï¿½rio ");
 });
 
 }
@@ -182,7 +177,7 @@ function colocarEmEdicao(id){
 			
 		}
 	}).fail(function (xhr, status, errorThrown){
-		alert("Erro ao buscar Usuário por id: ");
+		alert("Erro ao buscar Usuï¿½rio por id: ");
 	});
 	
 }
@@ -193,13 +188,13 @@ function salvarUsuario(){
 	var nome = $("#nome").val();
 	var idade = $("#idade").val();
 	
-	if(nome == null || nome != null && nome.trim() == ''){
+	if(nome === null || nome !== null && nome.trim() === ''){
 		$("#nome").focus();
 		alert('Informe o nome');
 	   return;
 	}
 	
-	if(idade == null || idade != null && idade.trim() == ''){
+	if(idade === null || idade !== null && idade.trim() === ''){
 		$("#idade").focus();
 		alert('Informe a idade');
 	   return;
@@ -212,10 +207,10 @@ function salvarUsuario(){
 		contentType:"application/json; charset-utf-8",
 		success: function (response){
 			$("#id").val(response.id);
-			alert("Usuário " + nome +" cadastrado com sucesso");
+			alert("Usuï¿½rio " + nome +" cadastrado com sucesso");
 		}
 	}).fail(function (xhr, status, errorThrown){
-		alert("Erro ao cadastrar usuário: " + xhr.responseText);
+		alert("Erro ao cadastrar usuï¿½rio: " + xhr.responseText);
 	});
 	}
 
